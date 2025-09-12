@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:tumbler/consts.dart';
-import 'package:tumbler/ui/onboarding/onboarding_screen.dart';
+import 'package:tumbler/utils/consts.dart';
+import 'package:tumbler/views/onboarding/onboarding_screen.dart';
 
 void main() {
   runApp(Tumblerapp());

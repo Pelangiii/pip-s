@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:tumbler/views/onboarding/components/body.dart';
 
 class OnboardingScreen extends StatelessWidget {
   const OnboardingScreen({super.key});
@@ -6,7 +7,7 @@ class OnboardingScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Placeholder(),
+      body: Body(),
     );
   }
 }

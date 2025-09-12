@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:tumbler/consts.dart';
+import 'package:tumbler/utils/consts.dart';
+import 'package:tumbler/utils/size_config.dart';
 
 class OnboardingContent extends StatelessWidget {
   const OnboardingContent({super.key, required this.text, required this.image});
@@ -19,7 +20,16 @@ class OnboardingContent extends StatelessWidget {
           "Owala",
           style: TextStyle(
             color: primaryColor,
-            fontSize: 24
+            fontSize: getProporsionetScreenHeight(36), // buat menjadi adaptif
+            fontWeight: FontWeight.bold, 
+          ),
+        ),
+        SizedBox(height: 16),
+        Text(
+          text,
+          textAlign: TextAlign.center,
+          style: TextStyle(
+            color: Colors.amber
           ),
         )
       ],
