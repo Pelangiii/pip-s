@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:tumbler/utils/consts.dart';
 import 'package:tumbler/views/auth/login_screen.dart';
+import 'package:tumbler/views/home/components/catalogue_screen.dart';
 import 'package:tumbler/views/onboarding/onboarding_screen.dart';
 
 void main() {
@@ -33,6 +34,7 @@ class _TumblerappState extends State<Tumblerapp> {
       routes: {
         '/onboarding': (context) => OnboardingScreen(),
         '/login': (context) => LoginScreen(),
+        '/catalogue': (context) => CatalogueScreen(),
       } ,
       home: OnboardingScreen(),
 
