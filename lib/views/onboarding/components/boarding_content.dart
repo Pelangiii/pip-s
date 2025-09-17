@@ -5,7 +5,7 @@ import 'package:tumbler/utils/size_config.dart';
 class OnboardingContent extends StatelessWidget {
   const OnboardingContent({super.key, required this.text, required this.image});
 
-  final String text,image;
+  final String text, image;
 
   @override
   Widget build(BuildContext context) {
@@ -13,23 +13,23 @@ class OnboardingContent extends StatelessWidget {
       children: [
         Image.asset(
           'assets/images/logo.png',
-          fit: BoxFit.cover,
+          fit: BoxFit.contain,
         ),
         Spacer(),
         Text(
           "Owala",
           style: TextStyle(
             color: primaryColor,
-            fontSize: getProporsionetScreenHeight(36), // buat menjadi adaptif
-            fontWeight: FontWeight.bold, 
+            fontSize: getProporsionetScreenWidth(36),
+            fontWeight: FontWeight.bold // buat menjadi adaptif
           ),
         ),
-        SizedBox(height: 16),
+        SizedBox(height: 15),
         Text(
           text,
           textAlign: TextAlign.center,
           style: TextStyle(
-            color: Colors.amber
+            color: primaryColor
           ),
         )
       ],
