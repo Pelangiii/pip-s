@@ -4,7 +4,7 @@ class AuthFormField extends StatelessWidget {
   final TextEditingController controller;
   final String label;
   final String? hintText;
-  final bool? obscureText;
+  final bool obscureText;
   final Widget? suffixIcon;
   final String? Function(String?)? validator;
   final TextInputType? keyboardType;
@@ -14,6 +14,7 @@ class AuthFormField extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         Text(
           label,

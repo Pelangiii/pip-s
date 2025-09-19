@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:tumbler/utils/consts.dart';
 import 'package:tumbler/views/auth/login_screen.dart';
+import 'package:tumbler/views/auth/register_screen.dart';
 import 'package:tumbler/views/home/components/catalogue_screen.dart';
 import 'package:tumbler/views/onboarding/onboarding_screen.dart';
 
@@ -30,11 +31,13 @@ class _TumblerappState extends State<Tumblerapp> {
         ),
       ),
       //initialroute = untuk mendefinisikan kelas apa yang dijalankan saat apliksi dijalankan
-      initialRoute: '/onboarding',
+      initialRoute: '/register',
       routes: {
         '/onboarding': (context) => OnboardingScreen(),
         '/login': (context) => LoginScreen(),
+        '/register': (context) => RegisterScreen(),
         '/catalogue': (context) => CatalogueScreen(),
+        
       } ,
       home: OnboardingScreen(),
 

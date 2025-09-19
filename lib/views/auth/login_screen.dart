@@ -110,6 +110,30 @@ class LoginScreen extends StatelessWidget {
                       backgroundColor: Colors.white, 
                       foregroundColor: Colors.black,
                       onPressed: () {},
+                      ),
+                    SizedBox(height: 20),
+                    SocialAuthButton(
+                      assetIcon: "assets/icons/appel_logo.svg", 
+                      label: "Sign in with appel", 
+                      backgroundColor: const Color.fromARGB(255, 0, 0, 0), 
+                      foregroundColor: const Color.fromARGB(255, 255, 254, 254),
+                      onPressed: () {},
+                      ),
+                      SizedBox(height: 30),
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          Text(
+                            "don't Have an account",
+                            style: TextStyle(
+                              color: textColor
+                            ),
+                          ),
+                          TextButton(
+                            onPressed: () => Navigator.pushNamed(context, '/register'),
+                            child: Text("Register"),
+                             ),
+                        ],
                       )
                 ],
               ),
