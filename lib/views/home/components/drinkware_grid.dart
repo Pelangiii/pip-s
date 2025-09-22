@@ -20,7 +20,12 @@ class DrinkwareGrid extends StatelessWidget {
         childAspectRatio: 0.75
         ),
         itemCount: products.length,
-        itemBuilder: (context, index) => ItemsCard(product: products[index], press: () {},),
+        itemBuilder: (context, index) => ItemsCard(product: products[index], press: () => Navigator.pushNamed(
+          context, 
+          '/detail',
+          arguments: products[index]
+          ),
+          ),
         ),
     );
   }

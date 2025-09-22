@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:tumbler/Data/products_data.dart';
+import 'package:tumbler/models/products_model.dart';
 import 'package:tumbler/utils/consts.dart';
 import 'package:tumbler/views/auth/login_screen.dart';
 import 'package:tumbler/views/auth/register_screen.dart';
+import 'package:tumbler/views/detail/detail_screen.dart';
 import 'package:tumbler/views/home/components/catalogue_screen.dart';
 import 'package:tumbler/views/onboarding/onboarding_screen.dart';
 
@@ -31,12 +34,15 @@ class _TumblerappState extends State<Tumblerapp> {
         ),
       ),
       //initialroute = untuk mendefinisikan kelas apa yang dijalankan saat apliksi dijalankan
-      initialRoute: '/register',
+      initialRoute: '/login',
       routes: {
         '/onboarding': (context) => OnboardingScreen(),
         '/login': (context) => LoginScreen(),
         '/register': (context) => RegisterScreen(),
         '/catalogue': (context) => CatalogueScreen(),
+        '/detail': (context) => DetailScreen( product: ModalRoute.of(context)!.settings.arguments as ProductsModel),
+       
+
         
       } ,
       home: OnboardingScreen(),

@@ -1,11 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:tumbler/utils/consts.dart';
 
-class ButtomNavBar extends StatelessWidget {
-  final int selectedIndex;
-  final ValueChanged<int> onItemTapped;
 
-  const ButtomNavBar({super.key, required this.selectedIndex, required this.onItemTapped});
+class BottomNavbar extends StatelessWidget {
+  final int selectedIndex;
+  final ValueChanged<int> onItemsTapped;
+
+  const BottomNavbar({super.key, required this.selectedIndex, required this.onItemsTapped});
 
   @override
   Widget build(BuildContext context) {
@@ -13,27 +14,27 @@ class ButtomNavBar extends StatelessWidget {
       items: [
         BottomNavigationBarItem(
           icon: Icon(Icons.home),
-          label: "home"
-          ),
+          label: "Home"
+        ),
         BottomNavigationBarItem(
           icon: Icon(Icons.favorite),
-          label: "wishlist"
-          ),
+          label: "Wishlist"
+        ),
         BottomNavigationBarItem(
           icon: Icon(Icons.settings),
-          label: "settings"
-          ),
+          label: "Setting"
+        ),
         BottomNavigationBarItem(
           icon: Icon(Icons.person),
-          label: "profile"
-          ),
+          label: "Profile"
+        )
       ],
       currentIndex: selectedIndex,
       selectedItemColor: primaryColor,
       unselectedItemColor: Colors.grey,
       showSelectedLabels: false,
       showUnselectedLabels: false,
-      onTap: onItemTapped,
-      );
+      onTap: onItemsTapped,
+    );
   }
 }

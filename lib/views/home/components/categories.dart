@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:tumbler/utils/consts.dart';
 
 class Categories extends StatefulWidget {
+
   const Categories({super.key});
 
   @override
@@ -9,10 +10,22 @@ class Categories extends StatefulWidget {
 }
 
 List<Map<String, dynamic>> categories = [
-  {"icon": Icons.local_drink, "text": "Drinkware"},
-  {"icon": Icons.color_lens, "text": "Color Drop"},
-  {"icon": Icons.card_giftcard, "text": "Bundels"},
-  {"icon": Icons.accessibility, "text": "Accsories"},
+  {
+    "icon": Icons.local_drink,
+    "text": "Drinkware",
+  },
+  {
+    "icon": Icons.color_lens,
+    "text": "Color Drop",
+  },
+  {
+    "icon": Icons.card_giftcard,
+    "text": "Bundles",
+  },
+  {
+    "icon": Icons.accessibility,
+    "text": "Accesories",
+  }, 
 ];
 
 int selectedIndex = 0;
@@ -28,24 +41,24 @@ class _CategoriesState extends State<Categories> {
           Row(
             children: [
               Text(
-                "Categories",
-                style: TextStyle(
-                  fontSize: 18,
-                  fontWeight: FontWeight.bold,
-                  color: textColor,
-                ),
+            "Categories",
+            style: TextStyle(
+              fontSize: 18,
+              fontWeight: FontWeight.bold,
+              color: textColor
+            ),
+          ),
+          Spacer(),
+          GestureDetector(
+            child: Text(
+              "View All",
+              style: TextStyle(
+                color: Color(0xFF236A91),
+                fontSize: 16,
+                fontWeight: FontWeight.bold
               ),
-              GestureDetector(
-                onTap: () {},
-                child: Text(
-                  "View all",
-                  style: TextStyle(
-                    color: Color(0xFF236A91),
-                    fontSize: 16,
-                    fontWeight: FontWeight.bold,
-                  ),
-                ),
-              ),
+            ),
+          )
             ],
           ),
           SizedBox(height: defaultPadding),
@@ -61,6 +74,7 @@ class _CategoriesState extends State<Categories> {
       ),
     );
   }
+
   GestureDetector _buildCategory(int index) {
     return GestureDetector(
       onTap: () {
@@ -74,10 +88,9 @@ class _CategoriesState extends State<Categories> {
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             Container(
-              //kurangi opadding agar lebih kecil
-              padding: EdgeInsets.all(10),
+              padding: EdgeInsets.all(10), // kurangi padding agar lebih kecil
               decoration: BoxDecoration(
-                color: selectedIndex == index ? primaryColor : Colors.grey,
+                color: selectedIndex == index ? primaryColor.withOpacity(0.2) : Colors.grey.withOpacity(0.0),
                 shape: BoxShape.circle,
               ),
               child: Icon(
@@ -85,21 +98,19 @@ class _CategoriesState extends State<Categories> {
                 color: selectedIndex == index ? primaryColor : secondaryColor,
                 size: 20,
               ),
-
-
             ),
             SizedBox(height: 7),
             Text(
               categories[index]["text"],
               style: TextStyle(
-                 color: selectedIndex == index ? primaryColor : secondaryColor,
-                 fontWeight: selectedIndex == index ? FontWeight.bold : FontWeight.normal,
-                 fontSize: 12,
+                color: selectedIndex == index ? primaryColor : secondaryColor,
+                fontWeight: selectedIndex == index ? FontWeight.bold : FontWeight.normal,
+                fontSize: 12
               ),
             )
           ],
         ),
-      ),
-    );
+        ),
+      );
   }
 }
