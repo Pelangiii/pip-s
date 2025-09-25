@@ -21,7 +21,7 @@ class AddToCart extends StatelessWidget {
             width: 54,
             decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(16),
-              border: Border.all(color: product.color)
+              // border: Border.all(color: product.color)
             ),
             child: IconButton(
               icon: Icon(Icons.add_shopping_cart_outlined),
@@ -41,7 +41,7 @@ class AddToCart extends StatelessWidget {
           Expanded(
             child: ElevatedButton(
               style: ElevatedButton.styleFrom(
-                backgroundColor: product.color,
+                // backgroundColor: product.color,
                 maximumSize: Size.fromHeight(50),
                 shape: RoundedRectangleBorder(borderRadius: BorderRadiusGeometry.circular(18)
                 ),

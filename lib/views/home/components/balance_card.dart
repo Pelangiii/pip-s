@@ -11,7 +11,7 @@ class BallanceCard extends StatelessWidget {
       margin: EdgeInsets.all(defaultPadding),
       padding: EdgeInsets.all(15),
       decoration: BoxDecoration(
-        color: Color(0xFF236A91),
+        color: Colors.red,
         borderRadius: BorderRadius.circular(12)
       ),
       child: Row(
@@ -29,10 +29,10 @@ class BallanceCard extends StatelessWidget {
                 children: [
                 Row(
                   children: [
-                    Icon(Icons.account_balance_wallet, color: Color(0xFF236A91)),
+                    Icon(Icons.account_balance_wallet, color: Colors.red),
                 SizedBox(width: 8),
                 Text(
-                  "Bottles",
+                  "PipGems",
                   style: TextStyle(
                     fontWeight: FontWeight.bold,
                     color: Colors.black
@@ -42,7 +42,7 @@ class BallanceCard extends StatelessWidget {
                 ),
                 SizedBox(height: 8),
                 Text(
-                  "Rp 145.000.000.000",
+                  "Rp 467.500",
                   style: TextStyle(
                     fontSize: 18,
                     fontWeight: FontWeight.bold,

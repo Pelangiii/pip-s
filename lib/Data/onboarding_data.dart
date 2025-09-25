@@ -1,18 +1,18 @@
 import 'package:tumbler/models/onboarding_model.dart';
 
 
-final String assetsPath = "/assets/images/drinkware/SmoothSip_TelescopeTales.png";
+final String assetsPath = "assets/images/drinkware/PiplogoWhite.png";
 List<OnboardingModel> onBoardingData = [
  OnboardingModel(
   image: assetsPath,
-  text: "Welcome to Owala – The water bottle \nthat transforms the way you stay hydrated",
+  text: "Console & gear keren. Mulai belanja! 🎮",
  ),
  OnboardingModel(
   image: assetsPath,
-  text: "Stylish & Eco-Friendly Design. \nStay hydrated in style while caring for our planet",
+  text: "Tandai favorit, beli cepat! 🛒",
  ),
  OnboardingModel(
   image: assetsPath,
-  text: "Ready to start your hydration journey? \nLet’s explore our products!",
+  text: "Top-up mudah, belanja nyaman! 💳",
  ),
 ];

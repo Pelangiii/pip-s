@@ -5,7 +5,7 @@ import 'package:tumbler/utils/consts.dart';
 class Description extends StatelessWidget {
   final ProductsModel product;
 
-  const Description({super.key, required this.product});
+  const Description({super.key, required this.product,});
 
   @override
   Widget build(BuildContext context) {

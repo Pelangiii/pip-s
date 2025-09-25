@@ -21,6 +21,7 @@ class _BodyState extends State<Body> {
         child: Column(
           children: [
             Expanded(
+              flex: 3,
               child: PageView.builder(
                 controller: _pageController,
                 onPageChanged: (value) {
@@ -67,8 +68,11 @@ class _BodyState extends State<Body> {
                   },
                   child: Text(
                     //currentPage == 3 - 1 ?
-                    currentPage == onBoardingData.length - 1 ? "Get Started" : "Next",
-                    style: TextStyle(color: Colors.white),
+                    currentPage == onBoardingData.length - 1 ? "Mulai" : "Selanjutnya ->",
+                    style: TextStyle(
+                      fontWeight: FontWeight.bold,
+                      color: Colors.white
+                      ),
                   ),
                 ),
               ),
@@ -84,7 +88,7 @@ class _BodyState extends State<Body> {
       margin: EdgeInsets.only(right: 10),
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(5),
-        color: currentPage == index ? primaryColor : secondaryColor,
+        color: currentPage == index ? const Color.fromARGB(255, 255, 255, 255) : secondaryColor,
       ),
       width:  currentPage == index ? 20 : 7,
       height: 5,

@@ -12,12 +12,12 @@ class OnboardingContent extends StatelessWidget {
     return Column(
       children: [
         Image.asset(
-          'assets/images/logo.png',
+          'assets/images/drinkware/PiplogoWhite.png',
           fit: BoxFit.contain,
         ),
         Spacer(),
         Text(
-          "Owala",
+          "PipGamingStore",
           style: TextStyle(
             color: primaryColor,
             fontSize: getProporsionetScreenWidth(36),
@@ -29,7 +29,7 @@ class OnboardingContent extends StatelessWidget {
           text,
           textAlign: TextAlign.center,
           style: TextStyle(
-            color: primaryColor
+            color: const Color.fromARGB(255, 255, 255, 255)
           ),
         )
       ],

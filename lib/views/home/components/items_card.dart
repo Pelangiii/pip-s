@@ -32,17 +32,17 @@ class ItemsCard extends StatelessWidget {
             Text(
               product.title,
               style: TextStyle(
-                color: textColor,
+                color: const Color.fromARGB(255, 255, 255, 255),
                 fontWeight: FontWeight.bold,
               ),
             ),
             SizedBox(height: 5),
-            Text(
-              product.getFormattedPrice(),
-              style: TextStyle(
-                color: textColor,
-              ),
-            )
+            // Text(
+            //   product.getFormattedPrice(),
+            //   style: TextStyle(
+            //     color: const Color.fromARGB(255, 255, 255, 255),
+            //   ),
+            // )
         ],
        ),
     );

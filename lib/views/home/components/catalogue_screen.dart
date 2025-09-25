@@ -40,18 +40,18 @@ class _CatalogueScreenState extends State<CatalogueScreen> {
                 BallanceCard(),
                 BannerSlider(),
                 SizedBox(height: 15),
-                Categories(),
+                // Categories(),
                 SizedBox(height: 15),
                 Padding(
                 padding: EdgeInsets.all(defaultPadding),
-                child: Text(
-                  "Drinkware",
-                  style: TextStyle(
-                    fontSize: 18,
-                    fontWeight: FontWeight.bold,
-                    color: textColor
-                  ),
-                ),
+                // child: Text(
+                //   "Drinkware",
+                //   style: TextStyle(
+                //     fontSize: 18,
+                //     fontWeight: FontWeight.bold,
+                //     color: textColor
+                //   ),
+                // ),
                 ),
                 DrinkwareGrid()
               ],

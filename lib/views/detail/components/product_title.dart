@@ -22,12 +22,12 @@ class ProductTitle extends StatelessWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Text(
-            "Drinkware",
-            style: TextStyle(
-              color: textColor
-            ),
-          ),
+          // Text(
+          //   "Drinkware",
+          //   style: TextStyle(
+          //     color: textColor
+          //   ),
+          // ),
           SizedBox(height: 5,),
           Text(
             product.title,
@@ -39,21 +39,21 @@ class ProductTitle extends StatelessWidget {
           ),
           Row(
             children: [
-              Expanded(
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Text(
-                      product.getFormattedPrice(),
-                      style: TextStyle(
-                        color: textColor,
-                        fontSize: 22,
-                        fontWeight: FontWeight.bold
-                      ),
-                    )
-                  ],
-                ),
-              ),
+              // Expanded(
+              //   child: Column(
+              //     crossAxisAlignment: CrossAxisAlignment.start,
+              //     children: [
+              //       Text(
+              //         product.getFormattedPrice(),
+              //         style: TextStyle(
+              //           color: textColor,
+              //           fontSize: 22,
+              //           fontWeight: FontWeight.bold
+              //         ),
+              //       )
+              //     ],
+              //   ),
+              // ),
               Hero(
                 tag: "${product.id}",
                 child: Image.asset(

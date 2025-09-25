@@ -1,115 +1,227 @@
 import 'package:flutter/material.dart';
-import 'package:tumbler/utils/consts.dart';
+// import 'package:tumbler/utils/consts.dart';
 import 'package:tumbler/utils/validators.dart';
-import 'package:tumbler/views/auth/components/auth_button.dart';
-import 'package:tumbler/views/auth/components/auth_form_field.dart';
+// import 'package:tumbler/views/auth/components/auth_button.dart';
+// import 'package:tumbler/views/auth/components/auth_form_field.dart';
 
-class RegisterScreen extends StatelessWidget {
+class RegisterScreen extends StatefulWidget {
+  const RegisterScreen({super.key});
+
+  @override
+  State<RegisterScreen> createState() => _RegisterScreenState();
+}
+
+class _RegisterScreenState extends State<RegisterScreen> {
   final _formKey = GlobalKey<FormState>();
-  final _nameController = TextEditingController();
   final _emailController = TextEditingController();
   final _passwordController = TextEditingController();
-  final _confirmpasswordController = TextEditingController();
+  final _confirmPasswordController = TextEditingController();
 
-  RegisterScreen({super.key});
+  bool _isLoading = false;
+
+  Future<void> _handleRegister() async {
+    if (_formKey.currentState!.validate()) {
+      setState(() {
+        _isLoading = true;
+      });
+
+      await Future.delayed(const Duration(seconds: 2));
+
+      setState(() {
+        _isLoading = false;
+      });
+
+      if (mounted) {
+        Navigator.pushReplacementNamed(context, '/catalogue');
+      }
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: SingleChildScrollView(
-        padding: EdgeInsets.symmetric(horizontal: 16, vertical: 32),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            SizedBox(height: 60),
-            Text(
-              "Register",
-              style: TextStyle(
-                color: textColor,
-                fontSize: 32,
-                fontWeight: FontWeight.bold,
+      body: Stack(
+        children: [
+          // Background image
+          Container(
+            decoration: const BoxDecoration(
+              image: DecorationImage(
+                image: AssetImage("assets/images/drinkware/bgps.png"), 
+                fit: BoxFit.cover,
               ),
             ),
+          ),
 
-            SizedBox(height: 8),
-            Text(
-              "Please create an account to continue",
-              style: TextStyle(fontSize: 16, color: textColor),
+          // Overlay gradient
+          Container(
+            decoration: const BoxDecoration(
+              gradient: LinearGradient(
+                colors: [
+                  Colors.transparent,
+                  Color.fromARGB(255, 39, 39, 39),
+                ],
+                begin: Alignment.topCenter,
+                end: Alignment.bottomCenter,
+              ),
             ),
-            // ini buat button nya
-            SizedBox(height: 30),
-            Form(
-              key: _formKey,
+          ),
+
+          // Konten utama
+          Center(
+            child: SingleChildScrollView(
+              padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 30),
               child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  AuthFormField(
-                    controller: _nameController,
-                    label: "Full Name",
-                    hintText: "Enter your full name",
-                    validator: Validators.validateFullName,
+                  const SizedBox(height: 40),
+
+                  // Logo
+                  Column(
+                    children: [
+                      Image.asset(
+                        "assets/images/drinkware/PiplogoWhite.png",
+                        height: 120,
+                      ),
+                      const SizedBox(height: 12),
+                      // 
+                    ],
                   ),
-                  SizedBox(height: 20),
-                  AuthFormField(
-                    controller: _emailController,
-                    label: "Email",
-                    hintText: "Enter your email",
-                    keyboardType: TextInputType.emailAddress,
-                    validator: Validators.validateEmail,
-                  ),
-                  SizedBox(height: 20),
-                  AuthFormField(
-                    controller: _passwordController,
-                    label: "Password",
-                    hintText: "Enter your pasword",
-                    obscureText: true,
-                    suffixIcon: Icon(Icons.visibility),
-                    validator: Validators.validatePassword,
-                  ),
-                  SizedBox(height: 20),
-                  AuthFormField(
-                    controller: _confirmpasswordController,
-                    label: "confirm Password",
-                    hintText: "Enter your pasword",
-                    obscureText: true,
-                    suffixIcon: Icon(Icons.visibility),
-                    validator: (value) => Validators.validateConfirmPassword(
-                      value,
-                      _confirmpasswordController.text
+
+                  const SizedBox(height: 50),
+
+                  // Form
+                  Form(
+                    key: _formKey,
+                    child: Column(
+                      children: [
+                        _buildWhiteFormField(
+                          controller: _emailController,
+                          label: "E-mail",
+                          hintText: "E-mail",
+                          validator: Validators.validateEmail,
+                          icon: Icons.email_outlined,
+                        ),
+                        const SizedBox(height: 20),
+
+                        _buildWhiteFormField(
+                          controller: _passwordController,
+                          label: "Password",
+                          hintText: "Password",
+                          obscureText: true,
+                          validator: Validators.validatePassword,
+                          icon: Icons.lock_outline,
+                        ),
+                        const SizedBox(height: 20),
+
+                        _buildWhiteFormField(
+                          controller: _confirmPasswordController,
+                          label: "Confirm Password",
+                          hintText: "Confirm Your Password",
+                          obscureText: true,
+                          validator: (value) =>
+                              Validators.validateConfirmPassword(
+                            value,
+                            _passwordController.text,
+                          ),
+                          icon: Icons.lock_outline,
+                        ),
+
+                        const SizedBox(height: 40),
+
+                        // Tombol Register dengan animasi loading
+                        AnimatedContainer(
+                          duration: const Duration(milliseconds: 300),
+                          width: _isLoading ? 60 : double.infinity,
+                          height: 50,
+                          child: ElevatedButton(
+                            style: ElevatedButton.styleFrom(
+                              backgroundColor: Colors.red,
+                              shape: RoundedRectangleBorder(
+                                borderRadius: BorderRadius.circular(14),
+                              ),
+                            ),
+                            onPressed: _isLoading ? null : _handleRegister,
+                            child: _isLoading
+                                ? const SizedBox(
+                                    height: 24,
+                                    width: 24,
+                                    child: CircularProgressIndicator(
+                                      color: Colors.white,
+                                      strokeWidth: 3,
+                                    ),
+                                  )
+                                : const Text(
+                                    "Register",
+                                    style: TextStyle(
+                                      fontSize: 18,
+                                      color: Colors.white,
+                                    ),
+                                  ),
+                          ),
+                        ),
+                      ],
                     ),
                   ),
-                  SizedBox(height: 50),
-                  AuthButton(
-                    text: "sign Up",
-                    onPressed: () {
-                      if (_formKey.currentState!.validate()) {
-                        Navigator.pushReplacementNamed(context, '/catalogue');
-                        
-                      }
-                    }, 
-                    backgroundColor: primaryColor,
-                    textColor: Colors.white,
-                  ),
-                  SizedBox(height: 20),
+
+                  const SizedBox(height: 40),
+
+                  // Text login link
                   Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
-                      Text(
-                        "Already Have an Account?",
-                        style: TextStyle(
-                          color: textColor,
-                        ),
+                      const Text(
+                        "you have an account? ",
+                        style: TextStyle(color: Colors.white),
                       ),
-                      TextButton(
-                        onPressed: () => Navigator.pushNamed(context, '/login'),
-                        child: Text("Sign in"),
-                        )
+                      GestureDetector(
+                        onTap: () => Navigator.pushNamed(context, '/login'),
+                        child: const Text(
+                          "Login Now!",
+                          style: TextStyle(
+                            color: Colors.red,
+                            fontWeight: FontWeight.bold,
+                          ),
+                        ),
+                      )
                     ],
                   )
                 ],
               ),
             ),
-          ],
+          ),
+        ],
+      ),
+    );
+  }
+
+  /// Custom TextField dengan border putih + shadow
+  Widget _buildWhiteFormField({
+    required TextEditingController controller,
+    required String label,
+    required String hintText,
+    required String? Function(String?) validator,
+    bool obscureText = false,
+    IconData? icon,
+  }) {
+    return TextFormField(
+      controller: controller,
+      validator: validator,
+      obscureText: obscureText,
+      style: const TextStyle(color: Colors.white),
+      decoration: InputDecoration(
+        labelText: label,
+        labelStyle: const TextStyle(color: Colors.white),
+        hintText: hintText,
+        hintStyle: TextStyle(color: Colors.white.withOpacity(0.7)),
+        prefixIcon: Icon(icon, color: Colors.white),
+        filled: true,
+        fillColor: Colors.white.withOpacity(0.1),
+        enabledBorder: OutlineInputBorder(
+          borderRadius: BorderRadius.circular(14),
+          borderSide: const BorderSide(color: Colors.white),
+        ),
+        focusedBorder: OutlineInputBorder(
+          borderRadius: BorderRadius.circular(14),
+          borderSide: const BorderSide(color: Colors.white, width: 2),
         ),
       ),
     );

@@ -10,6 +10,7 @@ class OnboardingScreen extends StatelessWidget {
     SizeConfig().init(context);
     return Scaffold(
       body: Body(),
+      
     );
   }
 }
