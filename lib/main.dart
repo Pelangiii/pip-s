@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-// import 'package:tumbler/Data/products_data.dart';
 import 'package:tumbler/models/products_model.dart';
 import 'package:tumbler/utils/consts.dart';
 import 'package:tumbler/views/auth/login_screen.dart';
@@ -47,7 +46,6 @@ class _TumblerappState extends State<Tumblerapp> {
         
       } ,
       home: OnboardingScreen(),
-
     ) ;
   }
 }
